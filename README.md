@@ -448,7 +448,7 @@ Modelul `DocumentChunk` salvează bucățile documentului:
 - `chunk_index`
 - `content`
 - `token_count`
-- `embedding` de tip `vector(384)`, generat cu `sentence-transformers`
+- `embedding` de tip `vector(768)`, generat cu `sentence-transformers`
 - `metadata` prin atributul Python `chunk_metadata`
 - `search_vector`
 - `created_at`
@@ -530,7 +530,7 @@ conținut, cu posibilitatea de override prin `--doc-type`.
 multilingv recomandat în L4:
 
 ```python
-SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+SentenceTransformer("paraphrase-multilingual-mpnet-base-v2")
 ```
 
 ## 14. CRUD și Transaction Management
@@ -590,12 +590,13 @@ Fișiere:
 - `src/extraction_pipeline/processing/embeddings.py`
 - `src/extraction_pipeline/rag.py`
 - `alembic/versions/0002_sentence_transformer_embeddings_hnsw.py`
+- `alembic/versions/0004_mpnet_embeddings_768.py`
 - `scripts/test_rag_search.py`
 
 Implementarea folosește:
 
-- `sentence-transformers` cu modelul `paraphrase-multilingual-MiniLM-L12-v2`
-- embeddings de 384 dimensiuni pentru fiecare chunk
+- `sentence-transformers` cu modelul `paraphrase-multilingual-mpnet-base-v2`
+- embeddings de 768 dimensiuni pentru fiecare chunk
 - pgvector cosine distance pentru semantic search
 - index HNSW cu `vector_cosine_ops`, `m=16`, `ef_construction=64`
 - `RAGService.search(query, top_k)` pentru retrieval
