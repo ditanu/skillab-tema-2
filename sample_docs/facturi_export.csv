@@ -1,0 +1,11 @@
+numar,data,furnizor,client,descriere,subtotal,tva,total,status
+FV-2024-001,15.03.2024,SC TechPro Solutions SRL,SC Digital Services SRL,Echipamente IT (laptopuri și monitoare),15200.00,2888.00,18088.00,platita
+FV-2024-002,22.03.2024,SC WebDev Expert SRL,SC Retail Plus SRL,Dezvoltare website e-commerce,13050.00,2479.50,15529.50,in_asteptare
+FV-2024-003,25.03.2024,SC CloudTech Services SRL,SC Manufacturing Pro SRL,Servicii implementare ERP - Tranșa 1,15126.05,2873.95,18000.00,platita
+FV-2024-004,28.03.2024,SC DataSoft SRL,SC Logistics Hub SRL,Licențe software management depozit,8500.00,1615.00,10115.00,in_asteptare
+FV-2024-005,01.04.2024,SC Strategy Advisors SRL,SC GreenEnergy Solutions SRL,Servicii consultanță - Avans,14000.00,2660.00,16660.00,platita
+FV-2024-006,05.04.2024,SC NetworkPro SRL,SC FinanceFirst SRL,Echipamente rețea și configurare,22450.00,4265.50,26715.50,restanta
+FV-2024-007,10.04.2024,SC CyberSec Solutions SRL,SC BankSecure SA,Audit securitate IT,35000.00,6650.00,41650.00,in_asteptare
+FV-2024-008,12.04.2024,SC PrintMaster SRL,SC MediaGroup SRL,Servicii tipărire materiale marketing,4200.00,798.00,4998.00,platita
+FV-2024-009,15.04.2024,SC TechPro Solutions SRL,SC HealthCare Plus SRL,Servere și echipamente stocare,67500.00,12825.00,80325.00,in_asteptare
+FV-2024-010,18.04.2024,SC WebDev Expert SRL,SC TravelTime SRL,Aplicație mobilă rezervări,24000.00,4560.00,28560.00,restanta
