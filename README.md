@@ -293,7 +293,7 @@ Proiectul include și funcționalitatea din `skillab-tema-1`: un agent local de 
 Rulează agentul:
 
 ```bash
-python run_agent.py "Care este programul de suport?" --model gemini
+python run_agent.py "NDA-ul semnat la angajare — cât timp rămâne valabil după încetarea contractului?" --model gemini
 ```
 
 Configurarea se poate face și prin variabile de mediu:
@@ -323,7 +323,7 @@ PYTHONPATH=src python scripts/ingest_documents.py sample_docs
 Apoi rulează agentul cu o întrebare despre documentele încărcate:
 
 ```bash
-python run_agent.py "Ce spune contractul despre reziliere?" --model gemini
+python run_agent.py "NDA-ul semnat la angajare — cât timp rămâne valabil după încetarea contractului?" --model gemini
 ```
 
 Teste rapide:
@@ -391,10 +391,10 @@ docker compose ps
 
 Containere folosite local:
 
-| Grup / proiect | Container | Imagine | Porturi |
-| --- | --- | --- | --- |
-| `skillab-tema-2` | `rag_demo_db` | `pgvector/pgvector:pg16` | `5433:5432` |
-| `share_lectia1` | `skillab-litellm` | `berriai/litellm:main-latest` | `4000:4000` |
+| Grup / proiect   | Container         | Imagine                       | Porturi     |
+| ---------------- | ----------------- | ----------------------------- | ----------- |
+| `skillab-tema-2` | `rag_demo_db`     | `pgvector/pgvector:pg16`      | `5433:5432` |
+| `share_lectia1`  | `skillab-litellm` | `berriai/litellm:main-latest` | `4000:4000` |
 
 Aplică migrațiile Alembic:
 
