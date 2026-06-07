@@ -17,6 +17,7 @@ python run_agent.py "Cine este Head of HR la NexaTech?" --model gemini
 Setup minim înainte de rulare:
 
 ```bash
+pip install -r requirements.txt
 docker compose up -d
 PYTHONPATH=src alembic upgrade head
 PYTHONPATH=src python scripts/ingest_documents.py sample_docs --rebuild
@@ -38,10 +39,8 @@ PostgreSQL + pgvector -> Alembic migrations -> Document/DocumentChunk models -> 
 
 ```text
 .
-├── main.py
 ├── agent.py
 ├── run_agent.py
-├── smoke_test.py
 ├── docker-compose.yml
 ├── alembic.ini
 ├── alembic/
@@ -86,13 +85,14 @@ Pipeline-ul nu alege loader-ul prin `if/else` repetitiv, ci printr-un registry m
 from pathlib import Path
 
 from langchain_core.documents import Document
-from langchain_community.document_loaders import Docx2txtLoader, PyPDFLoader, TextLoader
+from langchain_community.document_loaders import CSVLoader, Docx2txtLoader, PyPDFLoader, TextLoader
 
 
 LOADER_REGISTRY = {
     ".pdf": PyPDFLoader,
     ".docx": Docx2txtLoader,
     ".txt": TextLoader,
+    ".csv": CSVLoader,
 }
 
 
@@ -270,20 +270,14 @@ from extraction_pipeline import ExtractionPipeline
 pipeline = ExtractionPipeline()
 
 pipeline.process(
-    "sample_docs/factura.pdf",
+    "sample_docs/factura_001.txt",
     "factura",
 )
 
 pipeline.process(
-    "sample_docs/contract.docx",
+    "sample_docs/contract_servicii.txt",
     "contract",
 )
-```
-
-Sau:
-
-```bash
-PYTHONPATH=src python main.py
 ```
 
 ## QA Agent din tema 1
@@ -365,8 +359,8 @@ from extraction_pipeline import batch_process
 
 results = batch_process(
     [
-        ("sample_docs/factura.pdf", "factura"),
-        ("sample_docs/contract.docx", "contract"),
+        ("sample_docs/factura_001.txt", "factura"),
+        ("sample_docs/contract_servicii.txt", "contract"),
     ],
     num_workers=4,
 )
@@ -377,14 +371,12 @@ results = batch_process(
 Fișiere:
 
 - `docker-compose.yml`
-- `.env.example`
 - `src/extraction_pipeline/persistence/database.py`
 - `alembic/`
 
 Pornește PostgreSQL cu pgvector:
 
 ```bash
-cp .env.example .env
 docker compose up -d
 docker compose ps
 ```
